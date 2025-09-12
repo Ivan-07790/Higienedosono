@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guia Interativo para o Ritual do Sono</title>
+    <title>O Código do Sono - Guia Interativo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Chosen Palette: Warm Neutral Harmony -->
     <!-- Application Structure Plan: A task-oriented SPA designed to guide the user through a journey of sleep improvement. It starts with an interactive quiz for personalization, leading to a dynamic, customized action plan. This is followed by a "Deep Dive Library" for non-linear exploration of all topics, and an "Interactive Tools" section for practical application (like a ritual builder and breathing guide). This structure is chosen to increase engagement and provide actionable value upfront, making the final offer of the e-book and main product more compelling than a simple content presentation. -->
@@ -33,16 +33,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="antialiased">
+    <div id="top-countdown-bar" class="sticky top-0 z-50 bg-red-500 text-white text-sm font-semibold text-center p-1 hidden">
+        <div class="flex justify-center items-center gap-3 md:gap-4">
+            <span class="hidden sm:inline">Atenção: Sua oferta especial expira em:</span>
+            <div class="relative w-1/4 sm:w-1/3 bg-white/30 rounded-full h-2.5">
+                <div id="progress-bar" class="bg-white h-2.5 rounded-full" style="width: 70%"></div>
+            </div>
+            <div id="top-timer" class="font-mono text-xs">
+                <span id="top-hours">00</span>:<span id="top-minutes">00</span>:<span id="top-seconds">00</span>
+            </div>
+        </div>
+    </div>
+
     <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-40 calm-shadow">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-2xl font-bold text-[#4A5568]">
-                <span class="text-[#8C7A6B]">☾</span> Ritual do Sono
+                <span class="text-[#8C7A6B]">☾</span> O Código do Sono
             </div>
             <div class="hidden md:flex space-x-6 text-gray-700">
                 <a href="#diagnostico" class="hover:text-[#8C7A6B] transition-colors">Diagnóstico</a>
                 <a href="#biblioteca" class="hover:text-[#8C7A6B] transition-colors">Biblioteca</a>
                 <a href="#ferramentas" class="hover:text-[#8C7A6B] transition-colors">Ferramentas</a>
-                <a href="#" id="nav-oferta-btn" class="bg-[#8C7A6B] text-white px-4 py-2 rounded-full hover:bg-[#7a6a5a] transition-all duration-300">Baixar o E-book</a>
+                <a href="#oferta" class="bg-[#8C7A6B] text-white px-4 py-2 rounded-full hover:bg-[#7a6a5a] transition-all duration-300">Baixar o Guia</a>
             </div>
             <button id="mobile-menu-button" class="md:hidden text-2xl">☰</button>
         </nav>
@@ -50,14 +62,14 @@
              <a href="#diagnostico" class="block hover:text-[#8C7A6B] transition-colors">Diagnóstico</a>
              <a href="#biblioteca" class="block hover:text-[#8C7A6B] transition-colors">Biblioteca</a>
              <a href="#ferramentas" class="block hover:text-[#8C7A6B] transition-colors">Ferramentas</a>
-             <a href="#" id="mobile-oferta-btn" class="block mt-2 bg-[#8C7A6B] text-white px-4 py-2 rounded-full hover:bg-[#7a6a5a] transition-all duration-300 text-center">Baixar o E-book</a>
+             <a href="#oferta" class="block mt-2 bg-[#8C7A6B] text-white px-4 py-2 rounded-full hover:bg-[#7a6a5a] transition-all duration-300 text-center">Baixar o Guia</a>
         </div>
     </header>
 
     <main class="container mx-auto px-6 py-12">
         <section id="hero" class="text-center mb-20">
-            <h1 class="text-4xl md:text-6xl font-bold text-[#4A5568] mb-4 leading-tight">Recupere suas noites de sono.</h1>
-            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">Um guia interativo para você construir uma rotina de sono saudável e acordar com mais energia. Comece seu diagnóstico gratuito e descubra seus primeiros passos.</p>
+            <h1 class="text-4xl md:text-6xl font-bold text-[#4A5568] mb-4 leading-tight">Noites em claro? Nunca mais.</h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">Sente que seu corpo "desaprendeu" a dormir? Descubra o passo a passo para voltar a dormir bem e ter mais energia no seu dia.</p>
             <a href="#diagnostico" class="bg-[#A49180] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#8C7A6B] transition-all duration-300 transform hover:scale-105">Começar Diagnóstico Rápido</a>
         </section>
 
@@ -103,22 +115,58 @@
                 <div class="bg-white rounded-lg p-8 calm-shadow-lg">
                     <h3 class="font-bold text-xl mb-4 text-[#4A5568]">🧘 Guia de Respiração 4x4</h3>
                     <p class="text-gray-600 mb-4">Use esta animação para guiar sua respiração, acalmar a mente e preparar o corpo para o sono.</p>
-                    <div class="relative w-48 h-48 mx-auto flex items-center justify-center">
+                    <div class="relative w-48 h-48 mx-auto flex items-center justify-center cursor-pointer">
                         <div id="breathing-circle-bg" class="absolute w-full h-full bg-[#EAE3DC] rounded-full"></div>
                         <div id="breathing-circle" class="absolute w-8 h-8 bg-[#8C7A6B] rounded-full breathing-dot"></div>
                         <span id="breathing-text" class="text-lg font-semibold text-[#4A5568]">Clique</span>
                     </div>
+                     <p class="text-xs text-center text-gray-500 mt-2 italic">Clique no círculo para iniciar ou pausar.</p>
                 </div>
             </div>
         </section>
 
         <section id="oferta" class="bg-gradient-to-r from-[#eae3dc] to-[#dcd1c6] rounded-lg p-8 md:p-12 calm-shadow-lg text-center scroll-mt-24">
-            <h2 class="text-3xl font-bold text-[#4A5568] mb-4">Quer se aprofundar e transformar suas noites de vez?</h2>
-            <p class="text-lg text-gray-700 max-w-2xl mx-auto mb-8">Baixe o e-book completo "O Ritual do Sono" e tenha acesso a todo o conteúdo, checklists e um plano detalhado para aplicar no seu dia a dia.</p>
-            <button id="open-checkout-btn" class="bg-[#4A5568] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#394251] transition-all duration-300 transform hover:scale-105">Quero o E-book Completo Agora!</button>
+            <h2 class="text-3xl font-bold text-[#4A5568] mb-4">Transforme suas noites de vez com o guia completo!</h2>
+            
+            <div id="countdown-wrapper" class="mb-8 hidden">
+                <p class="text-lg text-gray-700 font-semibold">Esta oferta especial termina em:</p>
+                <div id="countdown" class="text-4xl md:text-5xl font-bold text-[#4A5568] flex justify-center space-x-2 md:space-x-4 mt-2">
+                    <div><span id="hours">00</span><span class="block text-sm font-normal">Horas</span></div>
+                    <div class="font-bold text-3xl">:</div>
+                    <div><span id="minutes">00</span><span class="block text-sm font-normal">Minutos</span></div>
+                    <div class="font-bold text-3xl">:</div>
+                    <div><span id="seconds">00</span><span class="block text-sm font-normal">Segundos</span></div>
+                </div>
+            </div>
+            <div id="countdown-expired" class="hidden text-2xl font-bold text-red-600 mt-4 mb-8">Oferta Encerrada!</div>
+
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-8">Tenha acesso ao guia **"O Código do Sono"** e receba o passo a passo detalhado, checklists e os desafios práticos para solidificar seus novos hábitos.</p>
+            
+            <div class="my-10 text-left max-w-2xl mx-auto bg-white/50 p-6 rounded-lg border border-white">
+                <h3 class="text-2xl font-bold text-[#4A5568] mb-4 text-center">O que você vai decifrar no guia:</h3>
+                <ul class="space-y-3 text-gray-700">
+                    <li class="flex items-start"><span class="text-emerald-600 mr-2 mt-1">✔</span> <strong>Capítulo 1: O Preço de Uma Noite em Branco</strong> - Os perigos que a falta de sono causa no seu corpo e mente.</li>
+                    <li class="flex items-start"><span class="text-emerald-600 mr-2 mt-1">✔</span> <strong>Capítulo 2: O Diagnóstico</strong> - Entenda os verdadeiros ladrões do seu sono.</li>
+                    <li class="flex items-start"><span class="text-emerald-600 mr-2 mt-1">✔</span> <strong>Capítulo 3: Os 5 Pilares do Sono</strong> - O passo a passo para criar o ambiente, a rotina e os hábitos perfeitos.</li>
+                    <li class="flex items-start"><span class="text-emerald-600 mr-2 mt-1">✔</span> <strong>Capítulo 4: Ferramentas Práticas</strong> - Um construtor de rituais e a poderosa técnica de respiração.</li>
+                    <li class="flex items-start"><span class="text-emerald-600 mr-2 mt-1">✔</span> <strong>BÔNUS: Capítulo 5: O Desafio dos 7 Dias</strong> - Atividades e missões avançadas para transformar seu sono de vez.</li>
+                </ul>
+            </div>
+
+            <div class="my-8">
+                <span class="text-2xl text-gray-500 line-through">De R$ 85,00</span>
+                <p class="text-lg text-gray-700">Por apenas:</p>
+                <p class="text-5xl font-extrabold text-emerald-600 my-2">R$ 19,90</p>
+            </div>
+
+            <button id="open-checkout-btn" class="bg-[#4A5568] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#394251] transition-all duration-300 transform hover:scale-105">Garantir meu Guia Agora!</button>
         </section>
 
     </main>
+
+    <footer class="text-center py-8 border-t border-gray-200">
+        <p class="text-sm text-gray-500">&copy; 2025 O Código do Sono. Todos os direitos reservados.</p>
+    </footer>
 
     <div id="modal-container" class="fixed inset-0 z-50 items-center justify-center hidden">
         <div class="modal-backdrop fixed inset-0"></div>
@@ -133,28 +181,28 @@
             const data = {
                 quiz: [
                     {
-                        question: "Como você classifica a consistência dos seus horários de dormir e acordar?",
-                        options: ["Muito consistentes, durmo e acordo na mesma hora sempre.", "Consistentes na semana, mas vario nos fins de semana.", "Raramente durmo e acordo nos mesmos horários."],
+                        question: "Seus horários de dormir e acordar são uma bagunça ou você é mais regrado?",
+                        options: ["😇 Sou um reloginho, durmo e acordo quase sempre na mesma hora.", "🤔 Durante a semana até tento, mas no fim de semana a rotina some.", "😵 É uma bagunça. Cada noite durmo em um horário diferente."],
                         category: "Rotina"
                     },
                     {
                         question: "Com que frequência você usa o celular ou assiste TV na cama antes de dormir?",
-                        options: ["Nunca ou raramente.", "Algumas vezes por semana.", "Quase todas as noites."],
+                        options: ["😇 Nunca ou raramente.", "🤔 Algumas vezes por semana.", "😵 Quase todas as noites."],
                         category: "Estímulos"
                     },
                     {
                         question: "Como é o seu quarto na hora de dormir?",
-                        options: ["Totalmente escuro, silencioso e fresco.", "Tem um pouco de luz ou ruído.", "Muitas luzes de aparelhos ou barulho externo."],
+                        options: ["😇 Totalmente escuro, silencioso e fresco.", "🤔 Tem um pouco de luz ou ruído.", "😵 Muitas luzes de aparelhos ou barulho externo."],
                         category: "Ambiente"
                     },
                     {
                         question: "Você consome bebidas com cafeína (café, energéticos) após as 15h?",
-                        options: ["Não, evito completamente.", "Ocasionalmente.", "Sim, com frequência."],
+                        options: ["😇 Não, evito completamente.", "🤔 Ocasionalmente.", "😵 Sim, com frequência."],
                         category: "Hábitos"
                     },
                     {
                         question: "Se você acorda de madrugada, qual sua reação mais comum?",
-                        options: ["Fico relaxado e geralmente volto a dormir.", "Olho o relógio e fico um pouco ansioso.", "Pego o celular ou me levanto e acendo a luz."],
+                        options: ["😇 Fico relaxado e geralmente volto a dormir.", "🤔 Olho o relógio e fico um pouco ansioso.", "😵 Pego o celular ou me levanto e acendo a luz."],
                         category: "Emergência"
                     }
                 ],
@@ -170,13 +218,13 @@
                     { id: 9, category: "Hábitos", title: "Atividade e Alimentação", content: `<h3>Timing de Exercícios e Refeições</h3><p>A hora em que você come e se exercita importa.</p><ul><li class="mt-2"><strong>Exercício Intenso:</strong> Evite treinos pesados 2-3 horas antes de dormir, pois elevam a temperatura corporal e a frequência cardíaca. Prefira atividades leves.</li><li class="mt-2"><strong>Refeições Pesadas:</strong> Faça sua última grande refeição pelo menos 3 horas antes de deitar para evitar desconforto e refluxo.</li></ul>`}
                 ],
                 ritualOptions: [
-                    { id: 'ritual_tela', text: 'Desligar todas as telas (celular, TV)' },
-                    { id: 'ritual_banho', text: 'Tomar um banho quente' },
-                    { id: 'ritual_leitura', text: 'Ler um livro de papel' },
-                    { id: 'ritual_meditacao', text: 'Meditar por 10 minutos' },
-                    { id: 'ritual_respiracao', text: 'Fazer exercícios de respiração' },
-                    { id: 'ritual_musica', text: 'Ouvir música calma' },
-                    { id: 'ritual_caderno', text: 'Anotar preocupações em um caderno' },
+                    { id: 'ritual_tela', emoji: '📱', text: 'Desligar todas as telas' },
+                    { id: 'ritual_banho', emoji: '🛁', text: 'Tomar um banho quente' },
+                    { id: 'ritual_leitura', emoji: '📖', text: 'Ler um livro de papel' },
+                    { id: 'ritual_meditacao', emoji: '🧘', text: 'Meditar por 10 minutos' },
+                    { id: 'ritual_respiracao', emoji: '🌬️', text: 'Fazer exercícios de respiração' },
+                    { id: 'ritual_musica', emoji: '🎶', text: 'Ouvir música calma' },
+                    { id: 'ritual_caderno', emoji: '📝', text: 'Anotar preocupações em um caderno' },
                 ],
                  planRecommendations: {
                     'Rotina': { title: 'Foco em Rotina', icon: '⏰', description: 'Seu relógio biológico parece desalinhado. A prioridade é definir horários fixos para acordar e dormir, mesmo nos fins de semana.' },
@@ -196,9 +244,9 @@
                     const questionBlock = document.createElement('div');
                     questionBlock.className = 'mb-6';
                     let optionsHTML = q.options.map((opt, optIndex) => `
-                        <label class="block bg-[#FDFBF8] border border-gray-200 rounded-lg p-4 mb-2 hover:bg-[#EAE3DC] cursor-pointer transition-colors">
-                            <input type="radio" name="question-${index}" value="${optIndex}" class="mr-3">
-                            ${opt}
+                        <label class="flex items-center bg-[#FDFBF8] border border-gray-200 rounded-lg p-4 mb-2 hover:bg-[#EAE3DC] cursor-pointer transition-colors">
+                            <input type="radio" name="question-${index}" value="${optIndex}" class="mr-3 h-4 w-4 text-[#8C7A6B] focus:ring-[#8C7A6B] border-gray-300">
+                            <span>${opt}</span>
                         </label>
                     `).join('');
 
@@ -327,7 +375,8 @@
                 ritualBuilder.innerHTML += `
                     <label class="flex items-center bg-[#FDFBF8] border border-gray-200 rounded-lg p-3 hover:bg-[#EAE3DC] cursor-pointer">
                         <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-[#8C7A6B] focus:ring-[#8C7A6B]" value="${opt.id}">
-                        <span class="ml-3 text-gray-700">${opt.text}</span>
+                        <span class="mr-3 text-xl">${opt.emoji}</span>
+                        <span class="text-gray-700">${opt.text}</span>
                     </label>
                 `;
             });
@@ -384,15 +433,93 @@
             
             const checkoutLink = 'https://pay.cakto.com.br/3feqawf_565682';
 
-            function goToCheckout(e) {
-                e.preventDefault();
-                window.location.href = checkoutLink;
+            document.querySelectorAll('a[href="#oferta"], #open-checkout-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const targetId = btn.getAttribute('href');
+                    if(targetId === '#oferta' && btn.id !== 'open-checkout-btn') {
+                        const offerSection = document.getElementById('oferta');
+                        if (offerSection) {
+                            e.preventDefault();
+                            offerSection.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    } else if (btn.id === 'open-checkout-btn') {
+                        e.preventDefault();
+                        if (!btn.disabled) {
+                           window.location.href = checkoutLink;
+                        }
+                    }
+                });
+            });
+            
+            function startCountdown() {
+                const topBar = document.getElementById('top-countdown-bar');
+                const progressBar = document.getElementById('progress-bar');
+                const topHoursEl = document.getElementById('top-hours');
+                const topMinutesEl = document.getElementById('top-minutes');
+                const topSecondsEl = document.getElementById('top-seconds');
+
+                const countdownWrapper = document.getElementById('countdown-wrapper');
+                const expiredElement = document.getElementById('countdown-expired');
+                const hoursEl = document.getElementById('hours');
+                const minutesEl = document.getElementById('minutes');
+                const secondsEl = document.getElementById('seconds');
+                const checkoutButton = document.getElementById('open-checkout-btn');
+                
+                const totalDuration = 24 * 60 * 60 * 1000;
+                let countDownDate = localStorage.getItem('countDownDate');
+
+                if (!countDownDate || new Date().getTime() > parseFloat(countDownDate)) {
+                    const startTime = new Date().getTime() - (totalDuration * 0.7); 
+                    countDownDate = startTime + totalDuration;
+                    localStorage.setItem('countDownDate', countDownDate);
+                } else {
+                    countDownDate = parseFloat(countDownDate);
+                }
+
+                topBar.classList.remove('hidden');
+                countdownWrapper.classList.remove('hidden');
+
+                const interval = setInterval(() => {
+                    const now = new Date().getTime();
+                    const distance = countDownDate - now;
+
+                    if (distance < 0) {
+                        clearInterval(interval);
+                        topBar.classList.add('hidden');
+                        countdownWrapper.classList.add('hidden');
+                        expiredElement.classList.remove('hidden');
+                        if(checkoutButton) {
+                            checkoutButton.disabled = true;
+                            checkoutButton.classList.add('bg-gray-400', 'hover:bg-gray-400', 'cursor-not-allowed');
+                            checkoutButton.innerText = 'Oferta Encerrada';
+                        }
+                        return;
+                    }
+
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                    
+                    const hoursStr = String(hours).padStart(2, '0');
+                    const minutesStr = String(minutes).padStart(2, '0');
+                    const secondsStr = String(seconds).padStart(2, '0');
+
+                    hoursEl.textContent = hoursStr;
+                    minutesEl.textContent = minutesStr;
+                    secondsEl.textContent = secondsStr;
+                    
+                    topHoursEl.textContent = hoursStr;
+                    topMinutesEl.textContent = minutesStr;
+                    topSecondsEl.textContent = secondsStr;
+
+                    const progress = ((countDownDate - now) / totalDuration) * 100;
+                    progressBar.style.width = Math.max(0, 100 - progress) + '%';
+
+
+                }, 1000);
             }
 
-            document.getElementById('open-checkout-btn').addEventListener('click', goToCheckout);
-            document.getElementById('nav-oferta-btn').addEventListener('click', goToCheckout);
-            document.getElementById('mobile-oferta-btn').addEventListener('click', goToCheckout);
-            
+            startCountdown();
             renderQuiz();
             renderFilters();
             renderLibrary();
