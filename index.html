@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O Código do Sono - Guia Interativo</title>
+    <title>O Código do Sono - A Jornada para Noites Reparadoras</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
@@ -17,20 +17,13 @@
         .calm-shadow-lg {
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
         }
-        .modal-backdrop {
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-        .breathing-dot {
-            transition: transform 3.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        /* Estilo para a imagem de fundo na Hero */
         #hero {
-            background-image: url('https://i.imgur.com/auuw5XX.png'); /* Imagem final de fundo */
+            background-image: url('https://imgur.com/auuw5XX');
             background-size: cover;
-            background-position: center;
-            color: white; /* Garante que o texto da hero seja legível sobre a imagem */
-            text-shadow: 0 2px 8px rgba(0,0,0,0.6); /* Sombra para o texto para melhorar contraste */
-            min-height: 70vh; /* Altura mínima para a seção hero */
+            background-position: center 70%;
+            color: white;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+            min-height: 80vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -45,34 +38,22 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.4); /* Escurece a imagem para o texto sobressair */
+            background-color: rgba(0,0,0,0.4);
         }
         #hero > * {
-            position: relative; /* Garante que o conteúdo fique acima do overlay */
+            position: relative;
             z-index: 1;
         }
-        /* Animação do botão para o scroll-down */
-        .scroll-down-btn {
-            animation: bounce 1.5s infinite;
+        .highlight-word {
+            color: #FBBF24; /* Amarelo para destaque */
+            font-weight: 700;
         }
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
-        }
-        /* Estilos para a seção de ofertas em comparação */
         .offer-card {
-            border: 2px solid #EAE3DC; /* Cor da borda padrão */
+            border: 2px solid #EAE3DC;
             transition: all 0.3s ease;
         }
         .offer-card.highlight {
-            border-color: #8C7A6B; /* Cor de destaque para o mais popular */
+            border-color: #8C7A6B;
             box-shadow: 0 10px 20px rgba(140, 122, 107, 0.2);
             transform: scale(1.02);
         }
@@ -82,18 +63,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="antialiased">
-    <div id="top-countdown-bar" class="sticky top-0 z-50 bg-red-500 text-white text-sm font-semibold text-center p-1 hidden">
-        <div class="flex justify-center items-center gap-3 md:gap-4">
-            <span class="hidden sm:inline">Atenção: Sua oferta especial expira em:</span>
-            <div class="relative w-1/4 sm:w-1/3 bg-white/30 rounded-full h-2.5">
-                <div id="progress-bar" class="bg-white h-2.5 rounded-full" style="width: 70%"></div>
-            </div>
-            <div id="top-timer" class="font-mono text-xs">
-                <span id="top-hours">00</span>:<span id="top-minutes">00</span>:<span id="top-seconds">00</span>
-            </div>
-        </div>
-    </div>
-
     <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-40 calm-shadow">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-xl md:text-2xl font-bold text-[#4A5568]">
@@ -115,116 +84,93 @@
         </div>
     </header>
 
-    <main class="container mx-auto px-6 py-0">
-        <section id="hero" class="text-center mb-0 scroll-mt-24">
-            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight">Sente que seu corpo 'desaprendeu' a dormir?</h1>
-            <p class="text-lg md:text-xl text-white max-w-3xl mx-auto mb-8">Descubra como reprogramar seu corpo para recuperar sua energia, foco e bom humor.</p>
-            <a href="#ofertas" class="bg-[#A49180] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#8C7A6B] transition-all duration-300 transform hover:scale-105 scroll-down-btn">QUERO DORMIR MELHOR AGORA</a>
+    <main>
+        <section id="hero" class="text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight max-w-3xl">Sente que seu corpo <span class="highlight-word">desaprendeu</span> a dormir? Diga adeus ao cansaço e acorde dominando seu dia!</h1>
+            <p class="text-lg md:text-xl text-white max-w-2xl mx-auto mb-8">A jornada para o sono reparador começa aqui.</p>
+            <a href="#ofertas" class="bg-[#FBBF24] text-[#4A5568] px-8 py-4 rounded-full text-lg font-bold hover:bg-yellow-300 transition-all duration-300 transform hover:scale-105">QUERO MINHA ENERGIA DE VOLTA</a>
         </section>
 
-        <section id="dores-custo" class="py-16 mb-12 scroll-mt-24">
-            <h2 class="text-3xl font-bold text-center text-[#4A5568] mb-8">Se você se identifica com algum destes pontos, você está no lugar certo:</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto text-center">
-                <div class="bg-white p-6 rounded-lg calm-shadow">
-                    <p class="text-4xl mb-3">😴</p>
-                    <p class="text-lg font-semibold text-[#4A5568]">Cansaço constante, mesmo após "dormir".</p>
+        <section id="dores-custo" class="py-16 bg-white scroll-mt-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-[#4A5568] mb-12">Você se identifica com algum desses sinais?</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-6xl mx-auto text-center">
+                    <div class="p-6 rounded-lg"><p class="text-5xl mb-3">😴</p><p class="font-semibold text-[#4A5568]">Cansaço que não passa</p></div>
+                    <div class="p-6 rounded-lg"><p class="text-5xl mb-3">🤯</p><p class="font-semibold text-[#4A5568]">Mente agitada que não desliga</p></div>
+                    <div class="p-6 rounded-lg"><p class="text-5xl mb-3">😠</p><p class="font-semibold text-[#4A5568]">Irritabilidade e explosões de humor</p></div>
+                    <div class="p-6 rounded-lg"><p class="text-5xl mb-3">🍫</p><p class="font-semibold text-[#4A5568]">Desejo incontrolável por doces</p></div>
+                    <div class="p-6 rounded-lg"><p class="text-5xl mb-3">📉</p><p class="font-semibold text-[#4A5568]">Foco e produtividade em queda</p></div>
                 </div>
-                <div class="bg-white p-6 rounded-lg calm-shadow">
-                    <p class="text-4xl mb-3">🤯</p>
-                    <p class="text-lg font-semibold text-[#4A5568]">Mente que não desliga na hora de deitar.</p>
+                <div class="mt-12 flex justify-center">
+                    <img src="https://i.imgur.com/OyXoIDx.png" alt="Calculadora do Cansaço" class="max-w-full h-auto rounded-lg calm-shadow-lg w-full sm:w-2/3 md:w-1/2">
                 </div>
-                <div class="bg-white p-6 rounded-lg calm-shadow">
-                    <p class="text-4xl mb-3">🍫</p>
-                    <p class="text-lg font-semibold text-[#4A5568]">Vontade de comer doces e besteiras no dia seguinte.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg calm-shadow md:col-span-2 lg:col-span-1 lg:col-start-2">
-                    <p class="text-4xl mb-3">😠</p>
-                    <p class="text-lg font-semibold text-[#4A5568]">Irritabilidade e falta de paciência.</p>
-                </div>
+                <p class="text-center text-gray-700 text-xl italic mt-12">Não é culpa sua — e tem solução. Veja como milhares recuperaram noites de descanso.</p>
             </div>
-             <p class="text-center text-gray-600 max-w-2xl mx-auto mt-12 text-xl italic">
-                Afinal, uma noite mal dormida custa caro. <br class="md:hidden">E não é só dinheiro.
-            </p>
-             <p class="text-center text-gray-600 max-w-2xl mx-auto mt-8">
-                Para visualizar o impacto real, criamos a 'Calculadora do Cansaço'. Veja o custo que uma noite ruim tem no seu dia a dia:
-            </p>
-            <div class="mt-4 flex justify-center">
-                <div class="max-w-md w-full">
-                    <img src="https://i.imgur.com/OyXoIDx.png" alt="Calculadora do Cansaço: Prejuízos de uma noite mal dormida" class="w-full h-auto rounded-lg calm-shadow-lg">
-                </div>
+        </section>
+        
+        <section id="prova-social-curta" class="py-12 bg-[#FDFBF8]">
+             <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-center text-[#4A5568] mb-4">Não somos nós que dizemos.</h2>
+                <p class="text-xl text-gray-700 font-semibold mb-4">+2.000 pessoas já transformaram suas noites com o Código do Sono.</p>
+                <p class="text-lg text-gray-600 italic">"Minha vida mudou! Voltei a ter disposição." - Maria P. ⭐⭐⭐⭐⭐</p>
             </div>
         </section>
 
-        <section id="ferramenta-demo" class="py-16 mb-12 scroll-mt-24">
-            <h2 class="text-3xl font-bold text-center text-[#4A5568] mb-2">Experimente uma de Nossas Ferramentas</h2>
-            <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">Esta é uma das ferramentas interativas que você encontrará no nosso Web App para te ajudar a acalmar a mente instantaneamente.</p>
-             <div class="bg-white rounded-lg p-8 calm-shadow-lg max-w-lg mx-auto">
-                <h3 class="font-bold text-xl mb-4 text-[#4A5568] text-center">🧘 Guia de Respiração 4x4</h3>
-                <p class="text-gray-600 mb-4 text-center">Use esta animação para guiar sua respiração e relaxar o corpo.</p>
-                <div class="relative w-48 h-48 mx-auto flex items-center justify-center cursor-pointer">
-                    <div id="breathing-circle-bg" class="absolute w-full h-full bg-[#EAE3DC] rounded-full"></div>
-                    <div id="breathing-circle" class="absolute w-8 h-8 bg-[#8C7A6B] rounded-full breathing-dot"></div>
-                    <span id="breathing-text" class="text-lg font-semibold text-[#4A5568]">Clique</span>
-                </div>
-                 <p class="text-xs text-center text-gray-500 mt-2 italic">Clique no círculo para iniciar ou pausar.</p>
-            </div>
-        </section>
-
-        <section id="ofertas" class="py-16 mb-20 scroll-mt-24">
-            <h2 class="text-3xl font-bold text-center text-[#4A5568] mb-12">Escolha a Solução Ideal Para Você</h2>
-            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <div class="offer-card bg-white p-8 rounded-lg calm-shadow flex flex-col justify-between">
-                    <div>
-                        <h3 class="font-bold text-2xl mb-4 text-[#4A5568]">Ebook "O Código do Sono"</h3>
-                        <p class="text-gray-600 mb-6">O guia definitivo com o passo a passo para você aplicar hoje e já sentir a diferença nas suas noites.</p>
-                        <p class="font-semibold text-gray-700 mb-4">Ideal para: Quem busca um método rápido, prático e direto ao ponto.</p>
-                        <ul class="space-y-2 text-gray-700 mb-8">
-                            <li class="flex items-center"><span class="text-emerald-600 mr-2">✅</span> O Método Completo em formato PDF.</li>
-                            <li class="flex items-center"><span class="text-emerald-600 mr-2">✅</span> Técnicas de Relaxamento Imediato.</li>
-                            <li class="flex items-center"><span class="text-emerald-600 mr-2">✅</span> Guia para criar sua Rotina Perfeita.</li>
-                            <li class="flex items-center"><span class="text-emerald-600 mr-2">✅</span> Acesso vitalício ao material.</li>
-				<li class="flex items-center"><span class="text-emerald-600 mr-2">✅</span> Ilustração do Plano Circadiano.</li>
-                        </ul>
-                    </div>
-                    <div class="text-center mt-auto">
-                        <div class="mb-4">
-                            <span class="text-xl text-gray-500 line-through">De R$ 3,90</span>
-                            <p class="text-3xl font-bold text-[#4A5568]">Por <span class="text-emerald-600">R$ 9,90</span></p>
+        <section id="ofertas" class="py-20 bg-white scroll-mt-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-[#4A5568] mb-12">Escolha Seu Caminho para o Sono Perfeito:</h2>
+                <div class="grid lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
+                    <div class="offer-card bg-[#FDFBF8] p-8 rounded-lg calm-shadow flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-bold text-2xl mb-2 text-[#4A5568]">Comece Hoje: O Guia Prático</h3>
+                            <p class="text-lg text-gray-700 mb-6">Desbloqueie os segredos do sono profundo e acorde com mais energia.</p>
+                            <p class="font-semibold text-gray-800 mb-4">O que você recebe:</p>
+                            <ul class="space-y-3 text-gray-700 mb-8">
+                                <li class="flex items-start"><span class="text-emerald-600 mr-2 mt-1">✅</span> <strong>Ebook Completo:</strong> O método passo a passo.</li>
+                                <li class="flex items-start"><span class="text-emerald-600 mr-2 mt-1">✅</span> <strong>Técnicas de Relaxamento Rápido.</strong></li>
+                                <li class="flex items-start"><span class="text-emerald-600 mr-2 mt-1">✅</span> <strong>Guia para criar sua Rotina Ideal.</strong></li>
+                                <li class="flex items-start"><span class="text-emerald-600 mr-2 mt-1">✅</span> <strong>Acesso Vitalício.</strong></li>
+                            </ul>
                         </div>
-                        <a href="https://pay.cakto.com.br/3feqawf_565682" class="w-full inline-block bg-[#A49180] text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-[#8C7A6B] transition-all duration-300">QUERO O EBOOK</a>
-                    </div>
-                </div>
-
-                <div class="offer-card highlight bg-white p-8 rounded-lg calm-shadow flex flex-col justify-between relative">
-                    <span class="absolute top-0 right-0 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">⭐ MAIS POPULAR ⭐</span>
-                    <div>
-                        <h3 class="font-bold text-2xl mb-4 text-[#4A5568]">Web App + Ebook Incluso</h3>
-                        <p class="text-gray-600 mb-6">Sua jornada interativa e personalizada para noites de sono profundo e dias com 100% de energia.</p>
-                        <p class="font-semibold text-gray-700 mb-4">Ideal para: Quem busca acompanhamento, ferramentas práticas e a solução completa.</p>
-                        <ul class="space-y-2 text-gray-700 mb-8">
-                            <li class="flex items-center"><span class="text-emerald-600 mr-2">✅</span> TUDO do Ebook e muito mais:</li>
-                            <li class="flex items-center"><span class="text-emerald-600 mr-2">📲</span> Acesso exclusivo ao nosso Web App.</li>
-                            <li class="flex items-center"><span class="text-emerald-600 mr-2">🌙</span> Diário do Sono para monitorar seu progresso.</li>
-                            <li class="flex items-center"><span class="text-emerald-600 mr-2">🎶</span> Meditações guiadas e sons relaxantes.</li>
-                            <li class="flex items-center"><span class="text-emerald-600 mr-2">🎁</span> **Bônus:** Ebook de Chás Relaxantes.</li>
-                            <li class="flex items-center"><span class="text-emerald-600 mr-2">💻</span> Acesse de qualquer lugar (PC, Celular, Tablet).</li>
-                            <li class="flex items-center"><span class="text-emerald-600 mr-2">📈</span> Gráficos que mostram sua evolução.</li>
-                        </ul>
-                    </div>
-                    <div class="text-center mt-auto">
-                         <div class="mb-4">
-                            <span class="text-xl text-gray-500 line-through">De R$ 89,90</span>
-                            <p class="text-3xl font-bold text-[#4A5568]">Por <span class="text-emerald-600">R$ 17,90</span></p>
+                        <div class="text-center mt-auto">
+                            <div class="mb-4">
+                                <span class="text-xl text-gray-500 line-through">De R$ 39,90</span>
+                                <p class="text-3xl font-bold text-[#4A5568]">Por <span class="text-emerald-600">APENAS R$ 9,90</span></p>
+                            </div>
+                            <a href="https://pay.cakto.com.br/3feqawf_565682" class="w-full inline-block bg-[#A49180] text-white px-8 py-3 rounded-full text-lg font-bold hover:bg-[#8C7A6B] transition-all duration-300">QUERO O EBOOK</a>
                         </div>
-                        <a href="https://pay.cakto.com.br/c3g3mfh_567889" class="w-full inline-block bg-[#4A5568] text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-[#394251] transition-all duration-300">QUERO A TRANSFORMAÇÃO COMPLETA</a>
+                    </div>
+
+                    <div class="offer-card highlight bg-white p-8 rounded-lg calm-shadow flex flex-col justify-between relative">
+                        <span class="absolute top-0 right-0 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">⭐ MAIS ESCOLHIDO ⭐</span>
+                        <div>
+                            <h3 class="font-bold text-2xl mb-2 text-[#4A5568]">Sua Jornada Personalizada</h3>
+                            <p class="text-lg text-gray-700 mb-6">Acompanhamento exclusivo e ferramentas interativas para resultados duradouros.</p>
+                             <p class="font-semibold text-gray-800 mb-4">O que você recebe:</p>
+                            <ul class="space-y-3 text-gray-700 mb-8">
+                                <li class="flex items-start"><span class="text-emerald-600 mr-2 mt-1">✅</span> <strong>TUDO do Ebook e muito mais:</strong></li>
+                                <li class="flex items-start"><span class="text-emerald-600 mr-2 mt-1">📲</span> Acesso exclusivo ao nosso <strong>Web App</strong>.</li>
+                                <li class="flex items-start"><span class="text-emerald-600 mr-2 mt-1">🌙</span> <strong>Diário do Sono</strong> para monitorar seu progresso.</li>
+                                <li class="flex items-start"><span class="text-emerald-600 mr-2 mt-1">▶️</span> <strong>Exercícios interativos</strong> para acalmar a mente.</li>
+                                <li class="flex items-start"><span class="text-emerald-600 mr-2 mt-1">🎁</span> <strong>Bônus:</strong> Ebook de Chás Relaxantes.</li>
+                                <li class="flex items-start"><span class="text-emerald-600 mr-2 mt-1">💻</span> Acesse de qualquer lugar (PC, Celular, Tablet).</li>
+                                <li class="flex items-start"><span class="text-emerald-600 mr-2 mt-1">📈</span> <strong>Gráficos</strong> que mostram sua evolução.</li>
+                            </ul>
+                        </div>
+                        <div class="text-center mt-auto">
+                             <div class="mb-4">
+                                <span class="text-xl text-gray-500 line-through">De R$ 119,90</span>
+                                <p class="text-3xl font-bold text-[#4A5568]">Por <span class="text-emerald-600">APENAS R$ 17,90</span></p>
+                            </div>
+                            <a href="https://pay.cakto.com.br/c3g3mfh_567889" class="w-full inline-block bg-[#4A5568] text-white px-8 py-3 rounded-full text-lg font-bold hover:bg-[#394251] transition-all duration-300 transform hover:scale-105">QUERO A SOLUÇÃO COMPLETA</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="depoimentos" class="mb-20 scroll-mt-24">
-            <h2 class="text-3xl font-bold text-center text-[#4A5568] mb-2">O que estão dizendo sobre o método</h2>
-            <p class="text-center text-gray-600 mb-8">Veja a transformação na vida de quem já decifrou o Código do Sono.</p>
+            <h2 class="text-3xl font-bold text-center text-[#4A5568] mb-12">Pessoas reais, resultados reais:</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="bg-white p-6 rounded-lg shadow-md flex flex-col">
                     <div class="text-xl text-yellow-400 mb-2">★★★★★</div>
@@ -241,78 +187,55 @@
                     <blockquote class="text-gray-600 italic mb-4 flex-grow">“Entender o plano circadiano foi um divisor de águas. Ajustei meus horários e a qualidade do meu sono melhorou 100%.”</blockquote>
                     <cite class="font-semibold text-gray-800 self-end">— Carla F.</cite>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md flex flex-col">
-                    <div class="text-xl text-yellow-400 mb-2">★★★★★</div>
-                    <blockquote class="text-gray-600 italic mb-4 flex-grow">“Finalmente um guia prático e sem enrolação. Os chás são ótimos e o conteúdo é direto ao ponto. Recomendo demais!”</blockquote>
-                    <cite class="font-semibold text-gray-800 self-end">— Ricardo G.</cite>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md flex flex-col">
-                    <div class="text-xl text-yellow-400 mb-2">★★★★★</div>
-                    <blockquote class="text-gray-600 italic mb-4 flex-grow">“O construtor de rituais foi o que eu precisava! Ter um plano claro para a noite me ajudou a criar um hábito que eu finalmente consigo seguir.”</blockquote>
-                    <cite class="font-semibold text-gray-800 self-end">— Fernanda L.</cite>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md flex flex-col">
-                    <div class="text-xl text-yellow-400 mb-2">★★★★★</div>
-                    <blockquote class="text-gray-600 italic mb-4 flex-grow">“Não é só sobre dormir, é sobre viver melhor. Com noites de sono de qualidade, meu humor e minha produtividade no trabalho melhoraram absurdamente.”</blockquote>
-                    <cite class="font-semibold text-gray-800 self-end">— Lucas M.</cite>
+            </div>
+        </section>
+
+        <section id="faq" class="py-16 mb-20 scroll-mt-24 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-[#4A5568] mb-12">Perguntas Frequentes</h2>
+                <div class="max-w-3xl mx-auto space-y-6">
+                    <div class="p-6 rounded-lg border">
+                        <details class="group">
+                            <summary class="flex justify-between items-center cursor-pointer text-xl font-semibold text-[#4A5568]">
+                                Por quanto tempo terei acesso?
+                                <span class="ml-2">
+                                    <svg class="w-6 h-6 text-[#8C7A6B] group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </span>
+                            </summary>
+                            <p class="mt-4 text-gray-600">O acesso ao Ebook é vitalício. Para o Web App, o acesso é garantido por 1 ano, com todas as atualizações e novas ferramentas que forem adicionadas nesse período.</p>
+                        </details>
+                    </div>
+                    <div class="p-6 rounded-lg border">
+                        <details class="group">
+                            <summary class="flex justify-between items-center cursor-pointer text-xl font-semibold text-[#4A5568]">
+                                Qual a diferença do Ebook para o Web App?
+                                <span class="ml-2">
+                                    <svg class="w-6 h-6 text-[#8C7A6B] group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </span>
+                            </summary>
+                            <p class="mt-4 text-gray-600">O **Ebook** é o seu manual completo, um guia em PDF para ler e consultar. O **Web App** é a sua experiência interativa: ele contém tudo do ebook e adiciona ferramentas como o Diário do Sono, meditações guiadas e gráficos de progresso para uma jornada mais completa.</p>
+                        </details>
+                    </div>
+                    <div class="p-6 rounded-lg border">
+                        <details class="group">
+                            <summary class="flex justify-between items-center cursor-pointer text-xl font-semibold text-[#4A5568]">
+                                Tenho garantia?
+                                <span class="ml-2">
+                                    <svg class="w-6 h-6 text-[#8C7A6B] group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </span>
+                            </summary>
+                            <p class="mt-4 text-gray-600">Sim! Oferecemos uma garantia de satisfação de 7 dias. Se por qualquer motivo você não estiver satisfeito, basta nos contatar e faremos o reembolso total do seu investimento.</p>
+                        </details>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="faq" class="py-16 mb-20 scroll-mt-24">
-            <h2 class="text-3xl font-bold text-center text-[#4A5568] mb-12">Perguntas Frequentes</h2>
-            <div class="max-w-3xl mx-auto space-y-6">
-                <div class="bg-white p-6 rounded-lg calm-shadow">
-                    <details class="group">
-                        <summary class="flex justify-between items-center cursor-pointer text-xl font-semibold text-[#4A5568]">
-                            O Código do Sono é indicado para quem?
-                            <span class="ml-2">
-                                <svg class="w-6 h-6 text-[#8C7A6B] group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </span>
-                        </summary>
-                        <p class="mt-4 text-gray-600">Nosso método é para qualquer pessoa que busca melhorar a qualidade do sono, reduzir o estresse noturno, ter mais energia durante o dia e eliminar a dependência de hábitos que prejudicam o descanso. É 100% natural e focado em reeducação do sono.</p>
-                    </details>
-                </div>
-
-                <div class="bg-white p-6 rounded-lg calm-shadow">
-                    <details class="group">
-                        <summary class="flex justify-between items-center cursor-pointer text-xl font-semibold text-[#4A5568]">
-                            Qual a diferença entre o Ebook e o Web App?
-                            <span class="ml-2">
-                                <svg class="w-6 h-6 text-[#8C7A6B] group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </span>
-                        </summary>
-                        <p class="mt-4 text-gray-600">O **Ebook "O Código do Sono"** é um guia completo em PDF, com o passo a passo do método e todas as técnicas. É ideal para quem prefere ler e aplicar no seu ritmo. Já o **Web App** inclui todo o conteúdo do Ebook, mas de forma interativa e personalizada. Ele oferece ferramentas como Diário do Sono, meditações guiadas, gráficos de progresso e um plano de ação dinâmico, proporcionando uma experiência de transformação mais completa e acompanhada.</p>
-                    </details>
-                </div>
-
-                <div class="bg-white p-6 rounded-lg calm-shadow">
-                    <details class="group">
-                        <summary class="flex justify-between items-center cursor-pointer text-xl font-semibold text-[#4A5568]">
-                            Preciso de algum equipamento especial ou remédios?
-                            <span class="ml-2">
-                                <svg class="w-6 h-6 text-[#8C7A6B] group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </span>
-                        </summary>
-                        <p class="mt-4 text-gray-600">Não! Nosso método é 100% natural e foca em mudar seus hábitos e o ambiente do sono. Você não precisará de equipamentos caros ou qualquer tipo de medicação. Apenas sua dedicação e a aplicação das técnicas comprovadas.</p>
-                    </details>
-                </div>
-
-                <div class="bg-white p-6 rounded-lg calm-shadow">
-                    <details class="group">
-                        <summary class="flex justify-between items-center cursor-pointer text-xl font-semibold text-[#4A5568]">
-                            E se eu não gostar ou não vir resultados?
-                            <span class="ml-2">
-                                <svg class="w-6 h-6 text-[#8C7A6B] group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </span>
-                        </summary>
-                        <p class="mt-4 text-gray-600">Oferecemos uma garantia de satisfação de 7 dias. Se por qualquer motivo você não estiver satisfeito(a) com o conteúdo ou não sentir que está no caminho certo para transformar seu sono, basta entrar em contato conosco dentro desse período e faremos o reembolso total do seu investimento. Sua satisfação é nossa prioridade.</p>
-                    </details>
-                </div>
-            </div>
+        <section class="text-center py-16">
+            <h2 class="text-2xl font-bold text-[#4A5568] mb-4">Não perca mais uma noite de sono.</h2>
+            <p class="text-lg text-gray-700 max-w-2xl mx-auto mb-8">Invista em você e na sua qualidade de vida.</p>
+            <a href="#ofertas" class="bg-[#FBBF24] text-[#4A5568] px-8 py-4 rounded-full text-lg font-bold hover:bg-yellow-300 transition-all duration-300 transform hover:scale-105">ESCOLHA SEU PLANO AGORA!</a>
         </section>
-
-
     </main>
 
     <footer class="text-center py-8 border-t border-gray-200">
@@ -321,128 +244,27 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            
-            // Script para o countdown 
-            function startCountdown() {
-                const topBar = document.getElementById('top-countdown-bar');
-                const progressBar = document.getElementById('progress-bar');
-                const topHoursEl = document.getElementById('top-hours');
-                const topMinutesEl = document.getElementById('top-minutes');
-                const topSecondsEl = document.getElementById('top-seconds');
-                
-                const totalDuration = 24 * 60 * 60 * 1000;
-                let countDownDate = localStorage.getItem('countDownDate');
-
-                if (!countDownDate || new Date().getTime() > parseFloat(countDownDate)) {
-                    const startTime = new Date().getTime() - (totalDuration * 0.3); 
-                    countDownDate = startTime + totalDuration;
-                    localStorage.setItem('countDownDate', countDownDate);
-                } else {
-                    countDownDate = parseFloat(countDownDate);
-                }
-
-                topBar.classList.remove('hidden');
-
-                const interval = setInterval(() => {
-                    const now = new Date().getTime();
-                    const distance = countDownDate - now;
-
-                    if (distance < 0) {
-                        clearInterval(interval);
-                        topBar.classList.add('hidden');
-                        return;
-                    }
-
-                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                    
-                    const hoursStr = String(hours).padStart(2, '0');
-                    const minutesStr = String(minutes).padStart(2, '0');
-                    const secondsStr = String(seconds).padStart(2, '0');
-                    
-                    topHoursEl.textContent = hoursStr;
-                    topMinutesEl.textContent = minutesStr;
-                    topSecondsEl.textContent = secondsStr;
-
-                    const progress = ((countDownDate - now) / totalDuration) * 100;
-                    progressBar.style.width = Math.max(0, 100 - progress) + '%';
-                }, 1000);
-            }
-
-            // Script para a ferramenta de respiração
-            const breathingCircle = document.getElementById('breathing-circle');
-            const breathingText = document.getElementById('breathing-text');
-            const breathingCircleBg = document.getElementById('breathing-circle-bg');
-            let isBreathing = false;
-            let breathingInterval;
-
-            function breathAnimation() {
-                const states = [
-                    { text: "Inspire...", scale: 5 },
-                    { text: "Segure", scale: 5 },
-                    { text: "Expire...", scale: 1 },
-                    { text: "Segure", scale: 1 }
-                ];
-                let currentState = 0;
-
-                const nextState = () => {
-                    const state = states[currentState];
-                    breathingText.textContent = state.text;
-                    breathingCircle.style.transform = `scale(${state.scale})`;
-                    currentState = (currentState + 1) % states.length;
-                };
-
-                nextState();
-                breathingInterval = setInterval(nextState, 4000);
-            }
-            if (breathingCircleBg) {
-                breathingCircleBg.parentElement.addEventListener('click', () => {
-                    if (!isBreathing) {
-                        isBreathing = true;
-                        breathAnimation();
-                    } else {
-                        isBreathing = false;
-                        clearInterval(breathingInterval);
-                        breathingText.textContent = 'Clique';
-                        breathingCircle.style.transform = 'scale(1)';
-                    }
-                });
-            }
-
-            // Script para o menu mobile
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            }
             document.querySelectorAll('#mobile-menu a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                });
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
             });
 
-            // Links de navegação suave
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth'
-                        });
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
                     }
                 });
             });
-
-            startCountdown();
         });
     </script>
 </body>
 </html>
-
-
-
-
 
